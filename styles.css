@@ -1,11 +1,16 @@
+body {
+    overflow: hidden;
+}
+
 #gameBoard {
     display: grid;
     grid-template-columns: repeat(3,7rem);
     grid-template-rows: repeat(3,7rem);
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
+    top: 5vw;
+    left: 36vw;
+    
+    
     
 }
 
@@ -37,4 +42,11 @@ cell:hover::after {
 
     font-size: 7rem;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.restart {
+    font-size: 1.5rem;
+    position: absolute;
+    bottom: 5rem;
+    left: 36rem;
 }
