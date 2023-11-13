@@ -9,9 +9,7 @@ body {
     position: relative;
     top: 5vw;
     left: 36vw;
-    
-    
-    
+    position: relative;
 }
 
 cell {
@@ -47,6 +45,7 @@ cell:hover::after {
 .restart {
     font-size: 1.5rem;
     position: absolute;
-    bottom: 5rem;
-    left: 36rem;
+    bottom: 5vw;
+    left: 47vw;
+    cursor: pointer;
 }
