@@ -22,6 +22,11 @@ cell {
     font-size: 7rem;
 }
 
+cell.winning {
+    text-decoration: line-through;
+    color: rgb(112, 42, 165);
+}
+
 /* For the first column, remove the left border */
 #gameBoard cell:nth-child(3n + 1) {
     border-left: none;
