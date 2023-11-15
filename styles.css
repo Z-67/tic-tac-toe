@@ -7,9 +7,10 @@ body {
     grid-template-columns: repeat(3,7rem);
     grid-template-rows: repeat(3,7rem);
     position: relative;
-    top: 5vw;
+    top: 10vh;
     left: 36vw;
     position: relative;
+    font-family: sans-serif;
 }
 
 cell {
@@ -50,7 +51,14 @@ cell:hover::after {
 .restart {
     font-size: 1.5rem;
     position: absolute;
-    bottom: 5vw;
+    bottom: 10vh;
     left: 47vw;
     cursor: pointer;
+}
+
+#winStatement {
+    position: absolute;
+    left: 47vw;
+    bottom: 18vh;
+    font-size: 2em;
 }

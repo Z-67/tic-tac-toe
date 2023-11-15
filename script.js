@@ -3,28 +3,32 @@ const restartButton= document.querySelector('.restart')
 
 // Initialize game state so this is Xs turn
 let isX = true;
-
+let gameOver = false;
 
 cells.forEach(cell => {
     cell.clicked = false;
+
     cell.addEventListener('click', () => {
-      // if the cell has already been clicked, cant overwrite content
-      if (!cell.clicked) {
-        // Add 'X' or 'O' to the cell when it's clicked
-        cell.textContent = isX ? 'X' : 'O';
+        if (gameOver || cell.clicked) {
+            return; // Ignore clicks if the game is over or the cell has already been clicked
+        }
+      
+      if (!cell.clicked) {// if the cell has already been clicked, cant overwrite content
+        
+        cell.textContent = isX ? 'X' : 'O';// Add 'X' or 'O' to the cell when it's clicked
         cell.style.color = 'black';  // Change color to black
         cell.clicked = true;  // so content stays in cell when mouseleaves
-        // Switch the game state for the next player's turn
-        isX = !isX;
-        //check for win after each move
-        checkForWin();
+        
+        isX = !isX;// Switch the game state for the next player's turn
+        
+        checkForWin();//check for win after each move
     }
 });
 
-    // Change hover effect based on game state
+    
     cell.addEventListener('mouseover', () => {
-        if (!cell.clicked) {
-            cell.textContent = isX ? 'X' : 'O'; // Display 'X' or 'O' on hover
+        if (!cell.clicked && !gameOver) {//if cell is not clicked and game is not over, show hover effect
+            cell.textContent = isX ? 'X' : 'O'; // Display X or O on hover
             cell.style.color = '#ccc';  
         }
     });
@@ -47,6 +51,7 @@ restartButton.addEventListener('click', () => {
 
     // Reset game state
     isX = true;
+    gameOver = false;
 });
 
 function checkForWin() {
@@ -74,7 +79,7 @@ function checkForWin() {
             const winStatement = document.getElementById('winStatement');
             winStatement.textContent = `${cells[a].textContent} wins!`;
             
-
+            gameOver=true;
         }
     }
 }
